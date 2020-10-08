@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { context } from '../context';
+import { context } from '../../context';
 
 
 class Contact extends Component {

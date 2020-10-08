@@ -10,6 +10,11 @@ const reducer = (action, state) => {
                 ...state,
                 contacts: state.contacts.filter(contact => contact.id !== action.payload)
             };
+        case 'ADD_CONTACT':
+            return {
+                ...state,
+                contacts: [...state.contacts, action.payload]
+            };
         default:
             return state;
     }
@@ -45,7 +50,7 @@ export class Provider extends Component {
         fetch('https://jsonplaceholder.typicode.com/users')
         .then(response => response.json())
         .then(data => {
-            this.setState({contacts: data})
+            this.setState({contacts: data.slice(0, 4)});
         })
 
         // axios.get('https://jsonplaceholder.typicode.com/users')
